@@ -1,0 +1,31 @@
+# Internship Day 1: Database Schema Design Task
+
+This repository contains the solution for the Day 1 internship task, focusing on database setup, schema design, and defining relationships.
+
+## Project Domain: E-commerce System
+
+The chosen domain for this task is a basic E-commerce system. This system models the core components involved in online shopping.
+
+## Database Entities (Tables) and Relationships
+
+The following tables were designed and implemented to represent the E-commerce system:
+
+1.  **`Customers`**: Stores information about individual customers (e.g., ID, name, contact details).
+    * **Primary Key:** `customer_id`
+
+2.  **`Products`**: Holds details about the items available for purchase (e.g., ID, name, description, price, stock).
+    * **Primary Key:** `product_id`
+
+3.  **`Orders`**: Records details of each purchase made by a customer.
+    * **Primary Key:** `order_id`
+    * **Foreign Key:** `customer_id` (links an order to the customer who placed it - a customer can place many orders).
+
+4.  **`Order_Items`**: This is a junction table that links `Orders` with `Products`. Since one order can contain many products, and one product can be part of many orders (a many-to-many relationship), this table specifies which products are in which orders and in what quantity.
+    * **Primary Key:** `order_item_id`
+    * **Foreign Key:** `order_id` (links to the specific order)
+    * **Foreign Key:** `product_id` (links to the specific product)
+
+## Deliverables
+
+* **`ecommerce_schema.sql`**: An SQL script containing the `CREATE TABLE` statements for the E-commerce database schema, including primary and foreign key definitions.
+* **`ecommerce_er_diagram.png`**: An Entity-Relationship (ER) Diagram visually representing the tables and their relationships within the E-commerce system.
